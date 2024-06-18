@@ -157,7 +157,7 @@ func (censor *CensorWordDetection) CensorWord(word string) (string, error) {
 		patterFormat := fmt.Sprintf(censor.ReplaceCheckPattern, forbiddenWord)
 		pattern := regexp.MustCompile(patterFormat)
 		var replacePattern, prefix, suffix string
-		wordLength := len(forbiddenWord)
+		wordLength := len([]rune(forbiddenWord))
 
 		if censor.KeepPrefixChar {
 			prefix = string(forbiddenWord[0])
